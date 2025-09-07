@@ -1,0 +1,207 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock title %}
+
+
+
+{% block banner_slider %}
+
+
+<marquee onmouseover="stop()" onmouseout="start()"
+ style="	background-color: white; color: black ; width: 100%; height: 50px; padding: 15px 40px 15px 40px;">
+ Get up to ₹200 cashback on payment via Mobikwik wallet over Rs. 499. T&C Apply*</marquee>
+
+
+<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel" style="margin-top: 0%;">
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="10000">
+      <img src="{% static 'base_app/images/banner/banner4.png' %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{% static 'base_app/images/banner/banner3.png' %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'base_app/images/banner/banner2.png' %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'base_app/images/banner/banner1.png' %}" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+    
+
+
+{% endblock banner_slider %}
+
+
+
+{% comment %} {% block information %}
+  
+
+  
+  <div class="container">
+    <div class="row bg-danger text-center p-5  text-white border-bottom shadow " >
+       <h1 class="">Products</h1>
+       <small class="fs-5">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+         At quas repudiandae est eveniet illum, animi quia laudantium tenetur deserunt vitae, cupiditate 
+         rem maiores nihil quaerat qui tempore architecto distinctio odit.
+
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio aut quis beatae eum repellendus fugit,
+        nam earum deserunt possimus dicta minus ex ratione placeat maiores et enim deleniti, consequatur suscipit!
+
+       </small>
+    </div>
+  </div>
+
+  {% endblock information %} {% endcomment %}
+
+
+
+{% block main-content %}
+
+ 
+<div class="container my-5 ">
+  <h1 class="text-center mb-4 text-bg-secondary ">SHOP BY BRANDS</h1>
+  <div class="row g-4 h-50 " style="border-radius: 50%;">
+    <!-- Category 1 -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+      <a href="{% url 'category' 'SO' %}">
+      <div class="card shadow-sm">
+        <img src="{% static 'base_app/images/products/nata.png' %}" class="card-img-top" alt="Category 1">
+        <div class="card-body text-center">
+          {% comment %} <h5 class="card-title">Sonata</h5>
+          <p class="card-text text-muted">The price of Sonata Poze watches is set to offer luxury without breaking the bank</p> {% endcomment %}
+          {% comment %} <a href="{% url 'category' 'SO' %}" class="btn btn-danger btn-sm">Explore</a> {% endcomment %}
+        </div>
+      </div>
+      </a>
+    </div>
+    <!-- Category 2 -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+      <a href="{% url 'category' 'KE' %}">
+      <div class="card shadow-sm">
+        <img src="{% static 'base_app/images/products/cole.png' %}" class="card-img-top" alt="Category 2">
+        <div class="card-body text-center">
+          {% comment %} <h5 class="card-title">Category 2</h5>
+          <p class="card-text text-muted">Description of category 2.</p> {% endcomment %}
+          {% comment %} <a href="{% url 'category' 'KE' %}" class="btn btn-danger  btn-sm">Explore</a> {% endcomment %}
+        </div>
+      </div>
+      </a>
+    </div>
+    <!-- Category 3 -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+      <a href="{% url 'category' 'FA' %}">
+      <div class="card shadow-sm">
+        <img src="{% static 'base_app/images/products/track.png' %}" class="card-img-top" alt="Category 3">
+        <div class="card-body text-center">
+          {% comment %} <h5 class="card-title">Category 3</h5>
+          <p class="card-text text-muted">Description of category 3.</p> {% endcomment %}
+          {% comment %} <a href="{% url 'category' 'FA' %}" class="btn btn-danger ary btn-sm">Explore</a> {% endcomment %}
+        </div>
+      </div>
+      </a>
+    </div>
+    <!-- Category 4 -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+      <a href="{% url 'category' 'TH' %}">
+      <div class="card shadow-sm">
+        <img src="{% static 'base_app/images/products/hilfiger.png' %}" class="card-img-top" alt="Category 4">
+        <div class="card-body text-center">
+          {% comment %} <h5 class="card-title">Category 4</h5>
+          <p class="card-text text-muted">Description of category 4.</p> {% endcomment %}
+          {% comment %} <a href="{% url 'category' 'TH' %}" class="btn btn-danger  btn-sm">Explore</a> {% endcomment %}
+        </div>
+      </div>
+      </a>
+    </div>
+
+    <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+      <a href="{% url 'category' 'PO' %}">
+      <div class="card shadow-sm">
+        <img src="{% static 'base_app/images/products/police.png' %}" class="card-img-top" alt="Category 3">
+        <div class="card-body text-center">
+          {% comment %} <h5 class="card-title">Category 3</h5>
+          <p class="card-text text-muted">Description of category 3.</p> {% endcomment %}
+          {% comment %} <a href="{% url 'category' 'PO' %}" class="btn btn-danger  btn-sm">Explore</a> {% endcomment %}
+        </div>
+      </div>
+      </a>
+    </div>
+    
+    
+    
+    <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+      <a href="{% url 'category' 'TI' %}">
+      <div class="card shadow-sm">
+        <img src="{% static 'base_app/images/products/tin.png' %}" class="card-img-top" alt="Category 3">
+        <div class="card-body text-center">
+          {% comment %} <h5 class="card-title">Category 3</h5>
+          <p class="card-text text-muted">Description of category 3.</p> {% endcomment %}
+          {% comment %} <a href="{% url 'category' 'TI' %}" class="btn btn-danger  btn-sm">Explore</a> {% endcomment %}
+        </div>
+      </div>
+      </a>
+    </div>
+
+    <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+      <a href="{% url 'category' 'AN' %}">
+      <div class="card shadow-sm">
+        <img src="{% static 'base_app/images/products/klein.png' %}" class="card-img-top" alt="Category 3">
+        <div class="card-body text-center">
+          {% comment %} <h5 class="card-title">Category 3</h5>
+          <p class="card-text text-muted">Description of category 3.</p> {% endcomment %}
+          {% comment %} <a href="{% url 'category' 'AN' %}" class="btn btn-danger  btn-sm">Explore</a> {% endcomment %}
+        </div>
+      </div>
+      </a>
+    </div>
+
+    <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+      <a href="{% url 'category' 'ZO' %}">
+      <div class="card shadow-sm">
+        <img src="{% static 'base_app/images/products/zoop.png' %}" class="card-img-top" alt="Category 3">
+        <div class="card-body text-center">
+          {% comment %} <h5 class="card-title">Category 3</h5>
+          <p class="card-text text-muted">Description of category 3.</p> {% endcomment %}
+          {% comment %} <a href="{% url 'category' 'ZO' %}" class="btn btn-danger  btn-sm">Explore</a> {% endcomment %}
+        </div>
+      </div>
+      </a>
+    </div>
+
+    <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+      <a href="{% url 'category' 'CA' %}">
+      <div class="card shadow-sm">
+        <img src="{% static 'base_app/images/products/caoch.png' %}" class="card-img-top" alt="Category 3">
+        <div class="card-body text-center">
+          {% comment %} <h5 class="card-title">Category 3</h5>
+          <p class="card-text text-muted">Description of category 3.</p> {% endcomment %}
+          {% comment %} <a href="{% url 'category' 'CA' %}" class="btn btn-danger  btn-sm">Explore</a> {% endcomment %}
+        </div>
+      </div>
+      </a>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+    
+{% endblock main-content %}
+
+
+    
+    

@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}about Us {% endblock title %}
+
+{% block main-content %}
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-lg-6">
+            <h1 class="mb-4">About Us</h1>
+            <p>Welcome to <strong>Watch Store</strong>, where precision meets elegance. We offer a premium collection of timepieces crafted for those who appreciate both style and functionality. Whether you seek a classic design, a modern masterpiece, or a rugged adventure companion, our carefully curated selection ensures you find the perfect watch.</p>
+            <p>With fast shipping, secure payments, and dedicated customer support, we strive to provide a seamless shopping experience. Elevate your style with our exclusive collection and make every second count.</p>
+            <p>"At <b>A</b> p, we believe that a watch is more than just a timekeeper – it's a statement of style, craftsmanship, and individuality. Our curated collection features high-quality, timeless pieces that suit every occasion and personality.</p>
+            <p> Whether you're after a sleek, modern design or a classic, elegant look, our diverse selection ensures that you'll find the perfect watch to complement your lifestyle. We’re passionate about delivering exceptional products and an unforgettable shopping experience, with fast shipping, excellent customer service, and a commitment to helping you find the watch that fits your needs perfectly. Explore our collection today and make every moment count."
+             Feel free to adjust the tone or details based on your brand's personality and unique offerings!
+            </p>
+        </div>
+        <div class="col-lg-6">
+            <img src="{% static 'base_app/images/products/hilfiger.png' %}" class="img-fluid rounded" alt="Luxury Watches">
+        </div>
+    </div>
+</div>
+{% endblock main-content %}
+    

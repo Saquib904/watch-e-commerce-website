@@ -1,0 +1,35 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}about Us {% endblock title %}
+
+{% block main-content %}
+<div class="container mt-5 mb-5">
+    <div class="row text-center">
+        <div class="col-lg-12 ">
+            <h1 class="mb-4">Contact Us</h1>
+            <p>If you have any questions, concerns, or feedback, feel free to reach out to us. We are always here to assist you.</p>
+            <form method="post" action="{% url 'contactsave' %}">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="name" class="form-label"><strong>Name</strong></label>
+                    <input type="text" class="form-control" name="name" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label"><strong>Email</strong></label>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label"><strong>Message</strong></label>
+                    <textarea class="form-control" name="message" id="message" rows="4" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form><br>
+            <br>
+            <h3 class="text-danger">{{n}}</h3>
+        </div>
+
+    </div>
+</div>
+
+{% endblock main-content %}
+    
