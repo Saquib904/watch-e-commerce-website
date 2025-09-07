@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+ 
+    <title>Watch Shop | {% block title %}{% endblock title %}</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href=" {% static 'base_app/css/all.min.css' %}"/>
+    <link rel="stylesheet" href=" {% static 'base_app/css/owl.carousel.min.css' %}"/>
+    <link rel="stylesheet" href=" {% static 'base_app/css/style.css' %}"/>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <style>
+      .active{
+        background-color: aqua; 
+      }
+      
+    
+    </style>
+
+</head>
+<body>
+
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light shadow " style="height: 50px;">
+        <div class="container-fluid mx-5">
+          <!-- Logo aligned to the left -->
+          <div class="d-flex align-items-start d-sm-grid ">
+            {% comment %} <a class="navbar-brand" href="{% static 'base_app/images/banner/watch.png' %}"> {% endcomment %}
+              <img src="{% static 'base_app/images/banner/ap2.png' %}"  class="" alt="..." style="height: 50px ; width: 60; margin-right: 40px;">
+            </a>
+          </div>
+    
+          <!-- Toggler for mobile view -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+    
+          <!-- Navbar content -->
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 fs-4 " >
+              <li class="nav-item ">
+                  
+               
+                <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'home' %}">Home</i></a>
+              </li>
+              <li class="nav-item dropdown">
+                <!-- Dropdown Menu -->
+                <a class="nav-link {% if request.path == 'category/<slug:val>' %}active{% endif %}
+                   dropdown-toggle" href="#" id="ProfileDropdow" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  
+                Category
+                </a>
+                <ul class="dropdown-menu " aria-labelledby="ProfileDropdow">
+                  <li><a class="dropdown-item" href="{% url 'category' 'TI' %}">Titan</a></li>
+                  <li><a class="dropdown-item" href="{% url 'category' 'TH' %}">Tommy Hilfiger</a></li>
+                  <li><a class="dropdown-item" href="{% url 'category' 'SO' %}">Sonata</a></li>
+                  <li><a class="dropdown-item" href="{% url 'category' 'FA' %}">Fastrack</a></li>
+                  <li><a class="dropdown-item" href="{% url 'category' 'AN' %}">Anne Klein</a></li>
+                  <li><a class="dropdown-item" href="{% url 'category' 'PO' %}">Police</a></li>
+                  <li><a class="dropdown-item" href="{% url 'category' 'KE' %}">Kenneth Cole</a></li>
+                  <li><a class="dropdown-item" href="{% url 'category' 'CA' %}">Caoch</a></li>
+                  <li><a class="dropdown-item" href="{% url 'category' 'ZO' %}">Zoop</a></li>
+
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {% if request.path == '/about/' %}active{% endif %}" href="{% url 'about' %}">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {% if request.path == '/contact/' %}active{% endif %}" href="{% url 'contact' %}">Contact US</a>
+              </li>
+
+              
+            </ul>
+    
+            <!-- Search bar and Cart button -->
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-danger" type="submit">Search</button>
+            </form>
+            {% comment %} <a href="#" class="btn btn-info ms-3 position-relative">
+              <i class="bi bi-cart"></i> Cart
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">3</span>
+            </a> {% endcomment %}
+
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 fs-4">
+              <li class="nav-item dropdown mx-2">
+                  <a class="nav-link dropdown-toggle btn-info" hrSef="#" id="ProfileDropdow" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-duotone fa-solid fa-user"></i>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="ProfileDropdow">
+                      <li><a class="dropdown-item" href="{% url 'profile' %}"> <i class="fa-regular fa-user"></i> Profile</a></li>
+                      <li><a class="dropdown-item" href="{% url 'showcart' %}">Orders</a></li>
+                      <li><a class="dropdown-item" href="{% url 'passwordchange' %}">Change Password</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                    </ul>
+                  </li>
+                  <li class='nav-item mx-2'>
+                      <a href="{% url 'showcart' %}" class="nav-link"><i class="fa-solid fa-cart-shopping"></i></a>
+                  </li>
+                  <li class='nav-item mx-2'>
+                      <a href="#" class="nav-link "><i class="fa-sharp-duotone fa-regular fa-heart"></i></i></a>
+                  </li>
+                  
+                  <li class='nav-item mx-2'>
+                      <a href="{% url 'login' %}" class="nav-link btn-bg-dark">Login</a>
+                  </li>
+                  <li class='nav-item mx-2'>
+                      <a href="{% url 'registration' %}" class="nav-link nav-link {% if request.path == '/registration/' %}active{% endif %} ">SignUp</a>
+                  </li>
+                  
+                  
+              </ul>
+            </div>
+ 
+           </div>
+         </nav>
+
+
+         {% block banner_slider %}{% endblock banner_slider %}
+
+         {% block information %}{% endblock information %}
+      
+        {% block main-content %}{% endblock main-content %}
+
+      <footer class="bg-dark text-white py-5">
+        <div class="container ">
+          <div class="row">
+            <!-- About Section -->
+            <div class="col-md-4">
+              <h5 onmouseover="" class="text-uppercase mb-3">About Us</h5>
+              <p>
+                Welcome to E-Shop, your one-stop destination for quality products. We aim to provide exceptional customer service and the best deals!
+              </p>
+            </div>
+    
+            <!-- Quick Links -->
+            <div class="col-md-2">
+              <h5 class="text-uppercase mb-3">Quick Links</h5>
+              <ul class="list-unstyled">
+                <li><a href="#" class="text-white text-decoration-none">Home</a></li>
+                <li><a href="#" class="text-white text-decoration-none">Shop</a></li>
+                <li><a href="#" class="text-white text-decoration-none">Categories</a></li>
+                <li><a href="#" class="text-white text-decoration-none">Contact</a></li>
+                <li><a href="#" class="text-white text-decoration-none">FAQs</a></li>
+              </ul>
+            </div>
+    
+            <!-- Contact Info -->
+            <div class="col-md-3">
+              <h5 class="text-uppercase mb-3">Contact Us</h5>
+              <p><i class="bi bi-geo-alt"></i> 123 Market Street, City, Country</p>
+              <p><i class="bi bi-telephone"></i> +123 456 7890</p>
+              <p><i class="bi bi-envelope"></i> support@eshop.com</p>
+            </div>
+    
+            <!-- Social Media -->
+            <div class="col-md-3">
+              <h5 class="text-uppercase mb-3">Follow Us</h5>
+              <div class="d-flex">
+                <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="text-white me-3"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="text-white me-3"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="text-white"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+          <hr class="text-white">
+          <div class="text-center mt-3">
+            <p class="mb-0">© 2025 E-Shop. All Rights Reserved.</p>
+          </div>
+        </div>
+      </footer>
+        
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" 
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" 
+    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script src="{% static 'base_app/js/owl.carousel.min.js' %}"></script>
+    <script src=" {% static 'base_app/js/all.min.js' %}"></script>
+    <script src=" {% static 'base_app/js/myscript.js' %}"></script>
+
+    <script>
+      // Get all nav links
+      const navLinks = document.querySelectorAll('nav ul li a');
+
+      // Loop through all the links and add event listeners for mouseover and mouseout
+      navLinks.forEach(link => {
+          link.addEventListener('mouseover', function() {
+              this.style.backgroundColor = '#555';  // Change background color on hover
+              this.style.color = '#fff';  // Optional: change text color on hover
+          });
+
+          link.addEventListener('mouseout', function() {
+              this.style.backgroundColor = '';  // Reset background color
+              this.style.color = '';  // Reset text color
+          });
+      });
+  </script>
+</body>
+</html>
